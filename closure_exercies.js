@@ -104,3 +104,39 @@ const afterCalled = after(3, called);
 afterCalled(); // -> nothing is printed
 afterCalled(); // -> nothing is printed
 afterCalled(); // -> 'hello' is printed
+
+function delay(func, wait) {
+  setTimeout(() => func(), wait);
+}
+
+
+/*
+Write a function rollCall that accepts an array of names and returns 
+a function. The first time the returned function is invoked, it should
+log the first name to the console. The second time it is invoked, it
+should log the second name to the console, and so on, until all names 
+have been called. Once all names have been called, it should log 
+'Everyone accounted for'.
+*/
+function rollCall(names) {
+	let counter = 0
+  
+  function callNextName() {
+    if (counter < names.length) {
+    	console.log(names[counter])
+    	counter++;
+    } else {
+      console.log('Everbody accounted for')
+    }
+  }
+  
+  return callNextName;
+}
+
+// UNCOMMENT THESE TO TEST YOUR WORK!
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+rollCaller() // -> Should log 'Victoria'
+rollCaller() // -> Should log 'Juan'
+rollCaller() // -> Should log 'Ruth'
+rollCaller() // -> Should log 'Everyone accounted for'
+
