@@ -63,7 +63,7 @@ const addByTwo = addByX(2);
 console.log(addByTwo(1));
 
 // now call addByTwo with an input of 2
-
+console.log(addByTwo(2));
 
 
 //--------------------------------------------------
